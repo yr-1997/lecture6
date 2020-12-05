@@ -5,7 +5,7 @@ const students = [
     subjects: {
       math: [4, 4, 3, 4],
       algorithms: [3, 3, 3, 4, 4, 4],
-      dataScience: [5, 5, 3, 4],
+      data_Science: [5, 5, 3, 4],
     },
   },
   {
@@ -29,7 +29,7 @@ const students = [
 ];
 const getSubjects = function (student) {
   return Object.keys(student.subjects).map((subject) => {
-    const separatedWords = subject.split("_").join(" ");
+    const separatedWords = subject.split("_").join(" ", " ");
     return (
       separatedWords[0].toUpperCase() + separatedWords.slice(1).toLowerCase()
     );
