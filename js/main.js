@@ -45,7 +45,7 @@ const getAverageMark = (student) => {
   let marks = subjectsMark[0].concat(subjectsMark[1], subjectsMark[2]);
   return getAverage(marks);
 };
-console.log(`Повертає середню оцінку: ${getAverageMark(students[0])}`);
+console.log(getAverageMark(students[0]));
 function getStudentInfo(student) {
   return {
     name: student.name,
