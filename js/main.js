@@ -37,7 +37,7 @@ const getSubjects = function (student) {
 };
 console.log(getSubjects(students[0]));
 const getAverage = (item) => {
-  let count = item.reduce((count, mark) => count + mark, 0);
+  const count = item.reduce((count, mark) => count + mark, 0);
   return +(count / item.length).toFixed(2);
 };
 const getAverageMark = (student) => {
@@ -54,16 +54,16 @@ function getStudentInfo(student) {
   };
 }
 console.log(getStudentInfo(students[0]));
-const getBestStudent = function (students) {
-  const markStudent = students.map((student) => [
-    student.name,
-    getAverageMark(student),
-  ]);
-  let bestStudent = ["", 0];
-  for (let i = 0; i < markStudent.length; i++) {
-    if (markStudent[i][1] > bestStudent[1]) bestStudent = markStudent[i];
-  }
-  return bestStudent[0];
+const getBestStudent = (students) => {
+  const studentsObj = { ...students };
+  const studentsAverageMarks = Object.values(studentsObj).map((e, i) => {
+    return getAverageMark(students[i]);
+  });
+  const indexOfBestAverageMark = studentsAverageMarks.indexOf(
+    Math.max(...studentsAverageMarks)
+  );
+
+  return Object.values(studentsObj[indexOfBestAverageMark].name).join("");
 };
 console.log(getBestStudent(students));
 const calculateWordLetters = function (word) {
